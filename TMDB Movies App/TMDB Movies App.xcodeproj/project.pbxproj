@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		331A20CD2F0C4D070092F5CD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 331A20CC2F0C4D070092F5CD /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3367EF432F01C14200E88D66 /* TMDB Movies App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMDB Movies App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331A20CD2F0C4D070092F5CD /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = "TMDB Movies App";
 			packageProductDependencies = (
+				331A20CC2F0C4D070092F5CD /* SnapKit */,
 			);
 			productName = "TMDB Movies App";
 			productReference = 3367EF432F01C14200E88D66 /* TMDB Movies App.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 3367EF3A2F01C14200E88D66;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				331A20CB2F0C4D070092F5CD /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3367EF442F01C14200E88D66 /* Products */;
 			projectDirPath = "";
@@ -331,6 +340,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		331A20CB2F0C4D070092F5CD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		331A20CC2F0C4D070092F5CD /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 331A20CB2F0C4D070092F5CD /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3367EF3B2F01C14200E88D66 /* Project object */;
 }

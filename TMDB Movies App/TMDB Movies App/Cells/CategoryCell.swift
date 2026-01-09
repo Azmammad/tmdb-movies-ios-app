@@ -15,8 +15,6 @@ final class CategoryCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .medium)
-        //label.numberOfLines = 0
-        //label.textColor = .white
         label.textAlignment = .center
         return label
     }()

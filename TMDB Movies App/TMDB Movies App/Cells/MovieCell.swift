@@ -25,7 +25,7 @@ final class MovieCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .semibold)
         label.textColor = .white
-        label.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        label.backgroundColor = .ratingBackground
         label.textAlignment = .center
         label.layer.cornerRadius = 4
         label.clipsToBounds = true

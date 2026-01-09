@@ -6,9 +6,7 @@
 //
 import Foundation
 
-protocol NetworkService {
-    //func request<T: Decodable>(_ endpoint: Endpoint, completion: @escaping (Result<T, NetworkError>) -> Void)
-    
+protocol NetworkService {    
     func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T
 
 }

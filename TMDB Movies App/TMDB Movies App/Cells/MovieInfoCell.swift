@@ -37,7 +37,7 @@ class MovieInfoCell: UITableViewCell {
     private let infoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 4
         stackView.alignment = .leading
         return stackView
     }()
@@ -70,10 +70,9 @@ class MovieInfoCell: UITableViewCell {
     private func setupConstraints() {
         posterImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.top.equalToSuperview().offset(12)
-            make.bottom.equalToSuperview().offset(-12)
-            make.width.equalTo(80)
-            make.height.equalTo(120)
+            make.verticalEdges.equalToSuperview().inset(12)
+            make.width.equalTo(100)
+            make.height.equalTo(130)
         }
         
         infoStackView.snp.makeConstraints { make in

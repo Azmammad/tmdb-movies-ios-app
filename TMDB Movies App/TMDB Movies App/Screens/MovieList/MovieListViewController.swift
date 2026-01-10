@@ -11,12 +11,6 @@ import SnapKit
 final class MovieListViewController: UIViewController {
     
     private let viewModel: MovieListViewModel
-
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.showsVerticalScrollIndicator = false
-        return scrollView
-    }()
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()

@@ -20,28 +20,9 @@ final class MovieListViewController: UIViewController {
     
     private let contentView = UIView()
     
-    private let headerLabel: UILabel = {
-        let label = UILabel()
-        label.text = "What do you want to watch?"
-        label.font = .systemFont(ofSize: 22, weight: .bold)
-        label.textColor = .white
-        return label
-    }()
-    
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "Search"
-        searchBar.searchBarStyle = .minimal
-        searchBar.backgroundImage = UIImage()
-        searchBar.searchTextField.backgroundColor = UIColor.white.withAlphaComponent(0.1)
-        searchBar.searchTextField.textColor = .white
-        searchBar.searchTextField.leftView?.tintColor = .white
-        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
-            string: "Search",
-            attributes: [.foregroundColor: UIColor.white.withAlphaComponent(0.5)]
-        )
-        return searchBar
-    }()
+    private let searchHeaderView = SearchHeaderView(
+        title: "What do you want to watch?"
+    )
     
     private let trendingLabel: UILabel = {
         let label = UILabel()
@@ -141,13 +122,13 @@ final class MovieListViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .appbackground
-        searchBar.delegate = self
+        searchHeaderView.searchBar.delegate = self
         addSubviews()
         setupConstraints()
     }
     
     private func addSubviews() {
-        [headerLabel, searchBar, trendingLabel, trendingCollectionView, categoryCollectionView, moviesCollectionView].forEach(contentView.addSubview)
+        [searchHeaderView, trendingLabel, trendingCollectionView, categoryCollectionView, moviesCollectionView].forEach(contentView.addSubview)
         scrollView.addSubview(contentView)
         view.addSubview(scrollView)
 
@@ -163,19 +144,24 @@ final class MovieListViewController: UIViewController {
             make.width.equalTo(scrollView)
         }
         
-        headerLabel.snp.makeConstraints { make in
+        searchHeaderView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(20)
         }
         
-        searchBar.snp.makeConstraints { make in
-            make.top.equalTo(headerLabel.snp.bottom).offset(8)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(50)
-        }
+//        headerLabel.snp.makeConstraints { make in
+//            make.top.equalToSuperview()
+//            make.leading.trailing.equalToSuperview().inset(20)
+//        }
+//        
+//        searchBar.snp.makeConstraints { make in
+//            make.top.equalTo(headerLabel.snp.bottom).offset(8)
+//            make.leading.trailing.equalToSuperview().inset(20)
+//            make.height.equalTo(50)
+//        }
         
         trendingLabel.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(16)
+            make.top.equalTo(searchHeaderView.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview().inset(20)
         }
         

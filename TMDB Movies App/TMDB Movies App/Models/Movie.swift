@@ -4,26 +4,28 @@
 //
 //  Created by Əzi Cəbrayılov on 05.01.26.
 //
-
+import Foundation
 
 struct Movie: Decodable {
     let id: Int
     let title: String
-    let overview: String
+    let overview: String?
     let posterPath: String?
     let backdropPath: String?
+    let releaseDate: String?
     let voteAverage: Double
-    let releaseDate: String
+    let voteCount: Int
     
     enum CodingKeys: String, CodingKey {
         case id, title, overview
         case posterPath = "poster_path"
         case backdropPath = "backdrop_path"
-        case voteAverage = "vote_average"
         case releaseDate = "release_date"
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
     }
 }
 
-struct MovieResponse: Decodable {
+struct MoviesResponse: Decodable {
     let results: [Movie]
 }

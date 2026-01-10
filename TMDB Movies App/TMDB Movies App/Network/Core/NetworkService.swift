@@ -6,9 +6,9 @@
 //
 import Foundation
 
-protocol NetworkService {    
+protocol NetworkService {
     func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T
-
+    
 }
 
 final class DefaultNetworkService: NetworkService {

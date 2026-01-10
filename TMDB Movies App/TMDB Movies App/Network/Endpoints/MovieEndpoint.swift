@@ -1,5 +1,5 @@
 //
-//  MovieEndpoint.swift
+//  MoviesEndpoint.swift
 //  TMDB Movies App
 //
 //  Created by Əzi Cəbrayılov on 05.01.26.
@@ -15,6 +15,8 @@ enum MovieEndpoint {
     case getUpcomingMovies
     case getTopRatedMovies
     case searchMovies(query: String)
+    case getMovieDetail(movieId: Int)
+    case getMovieReviews(movieId: Int)
 }
 
 extension MovieEndpoint: Endpoint {
@@ -26,16 +28,27 @@ extension MovieEndpoint: Endpoint {
         switch self {
         case .getTrendingMovies:
             return "/3/trending/movie/day"
+            
         case .getNowPlayingMovies:
             return "/3/movie/now_playing"
+            
         case .getPopularMovies:
             return "/3/movie/popular"
+            
         case .getUpcomingMovies:
             return "/3/movie/upcoming"
+            
         case .getTopRatedMovies:
             return "/3/movie/top_rated"
+            
         case .searchMovies:
             return "/3/search/movie"
+            
+        case .getMovieDetail(let movieId):
+            return "/3/movie/\(movieId)"
+            
+        case .getMovieReviews(let movieId):
+            return "/3/movie/\(movieId)/reviews"
         }
     }
     

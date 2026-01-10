@@ -6,6 +6,7 @@
 //
 
 class WatchListBuilder {
+    
     func build() -> WatchListViewController {
         let networkService = DefaultNetworkService()
         let viewModel = WatchListViewModel(networkService: networkService)

@@ -2,9 +2,8 @@
 //  MovieCategory.swift
 //  TMDB Movies App
 //
-//  Created by Əzi Cəbrayılov on 08.01.26.
+//  Created by Leyla Jafarova on 09/01/2026.
 //
-
 
 import Foundation
 
@@ -15,6 +14,7 @@ enum MovieCategory: String, CaseIterable {
     case upcoming
     case topRated
     case popular
+    
     
     var title: String {
         switch self {

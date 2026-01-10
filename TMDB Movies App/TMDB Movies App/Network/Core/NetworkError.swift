@@ -5,6 +5,7 @@
 //  Created by Əzi Cəbrayılov on 05.01.26.
 //
 
+
 enum NetworkError: Error {
     case invalidURL
     case noData

@@ -92,3 +92,8 @@ class MovieListViewModel {
         await loadCategoryMovies(category: .nowPlaying)
     }
 }
+extension MovieListViewModel {
+    func makeDetailViewModel(movieId: Int) -> DetailsViewModel {
+        return DetailsViewModel(movieId: movieId, networkService: networkService)
+    }
+}

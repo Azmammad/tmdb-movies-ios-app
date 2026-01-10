@@ -6,6 +6,7 @@
 //
 
 class SearchBuilder {
+    
     func build() -> SearchViewController {
         let networkService = DefaultNetworkService()
         let viewModel = SearchViewModel(networkService: networkService)

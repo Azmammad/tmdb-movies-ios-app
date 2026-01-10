@@ -11,6 +11,12 @@ import SnapKit
 final class MovieListViewController: UIViewController {
     
     private let viewModel: MovieListViewModel
+
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -124,9 +130,9 @@ final class MovieListViewController: UIViewController {
 
     
     init(viewModel: MovieListViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
+            self.viewModel = viewModel
+            super.init(nibName: nil, bundle: nil)
+        }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -156,8 +162,6 @@ final class MovieListViewController: UIViewController {
     private func setupConstraints() {
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
-//            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-//            make.bottom.equalToSuperview()
         }
         
         contentView.snp.makeConstraints { make in
@@ -260,6 +264,10 @@ final class MovieListViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
+    private func navigateToDetail(movieId: Int) {
+        let detailVC = DetailsBuilder.build(movieId: movieId)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 
 }
 
@@ -303,20 +311,31 @@ extension MovieListViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
     }
+    
 }
 
 extension MovieListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == categoryCollectionView {
+        switch collectionView {
+        case categoryCollectionView:
             let category = viewModel.filterCategories[indexPath.item]
-            Task {
-                await viewModel.loadCategoryMovies(category: category)
-            }
+            Task { await viewModel.loadCategoryMovies(category: category) }
+            
+        case moviesCollectionView:
+            let movie = viewModel.displayedMovies[indexPath.item]
+            navigateToDetail(movieId: movie.id)
+            
+        case trendingCollectionView:
+            let movie = viewModel.trendingMovies[indexPath.item]
+            navigateToDetail(movieId: movie.id)
+            
+        default:
+            break
         }
     }
+    
 }
-
 extension MovieListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

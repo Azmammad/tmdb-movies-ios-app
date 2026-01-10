@@ -9,6 +9,7 @@
 import Foundation
 
 class SearchViewModel {
+    
     private let networkService: NetworkService
     
     init(networkService: NetworkService) {

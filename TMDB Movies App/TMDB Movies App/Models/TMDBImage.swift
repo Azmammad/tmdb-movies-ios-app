@@ -2,9 +2,8 @@
 //  TMDBImage.swift
 //  TMDB Movies App
 //
-//  Created by Əzi Cəbrayılov on 08.01.26.
+//  Created by Leyla Jafarova on 09/01/2026.
 //
-
 
 import Foundation
 
@@ -16,3 +15,4 @@ enum TMDBImage {
         return URL(string: baseURL + path)
     }
 }
+

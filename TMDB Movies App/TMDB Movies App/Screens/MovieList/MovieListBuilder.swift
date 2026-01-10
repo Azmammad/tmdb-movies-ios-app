@@ -6,9 +6,14 @@
 //
 
 class MovieListBuilder {
+    
     func build() -> MovieListViewController {
         let networkService = DefaultNetworkService()
         let viewModel = MovieListViewModel(networkService: networkService)
-        return MovieListViewController(viewModel: viewModel)
+        
+        let viewController = MovieListViewController(viewModel: viewModel)
+        return viewController
+
     }
 }
+

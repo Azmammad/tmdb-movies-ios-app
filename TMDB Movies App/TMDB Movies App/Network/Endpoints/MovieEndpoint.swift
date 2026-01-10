@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum MoviesEndpoint {
+enum MovieEndpoint {
     case getTrendingMovies
     case getNowPlayingMovies
     case getPopularMovies

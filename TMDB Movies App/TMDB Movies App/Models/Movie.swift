@@ -15,6 +15,7 @@ struct Movie: Decodable {
     let releaseDate: String?
     let voteAverage: Double
     let voteCount: Int
+    let genreIds: [Int]? 
     
     enum CodingKeys: String, CodingKey {
         case id, title, overview
@@ -23,6 +24,7 @@ struct Movie: Decodable {
         case releaseDate = "release_date"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+        case genreIds = "genre_ids"
     }
 }
 

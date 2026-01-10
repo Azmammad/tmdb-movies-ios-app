@@ -1,0 +1,45 @@
+//
+//  MovieDetails.swift
+//  TMDB Movies App
+//
+//  Created by Leyla Jafarova on 07/01/2026.
+//
+
+struct MovieDetails: Decodable {
+    let id: Int
+    let title: String
+    let overview: String
+    let runtime: Int?
+    let genres: [Genre]
+    let releaseDate: String?
+    let voteAverage: Double
+    let posterPath: String?
+    let backdropPath: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id, title, overview, runtime, genres
+        case releaseDate = "release_date"
+        case voteAverage = "vote_average"
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+    }
+}
+
+struct Genre: Decodable {
+    let id: Int
+    let name: String
+}
+
+struct CreditsResponse: Decodable {
+    let cast: [Cast]
+}
+
+struct Cast: Decodable {
+    let name: String
+    let profilePath: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case profilePath = "profile_path"
+    }
+}

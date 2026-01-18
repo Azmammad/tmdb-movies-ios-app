@@ -34,6 +34,8 @@ final class DetailsViewController: UIViewController {
         setupDelegates()
         bindViewModel()
         viewModel?.fetchMovieDetail()
+        
+        syncBookmarkState()
     }
     
     override func viewDidLayoutSubviews() {
@@ -42,6 +44,21 @@ final class DetailsViewController: UIViewController {
             detailView.setupInitialIndicator(for: firstButton)
         }
     }
+    
+    private func notifyWatchListController() {
+        guard
+            let tabBarController = tabBarController,
+            let viewControllers = tabBarController.viewControllers,
+            viewControllers.count > 2,
+            let watchListNav = viewControllers[2] as? UINavigationController,
+            let watchListVC = watchListNav.viewControllers.first as? WatchListViewController
+        else {
+            return
+        }
+
+        watchListVC.reloadWatchList()
+    }
+
 }
 
 extension DetailsViewController {
@@ -85,7 +102,10 @@ extension DetailsViewController {
     
     private func bindViewModel() {
         viewModel?.didUpdateDetail = { [weak self] detail in
-            DispatchQueue.main.async { self?.detailView.configureUI(with: detail) }
+            DispatchQueue.main.async {
+                self?.detailView.configureUI(with: detail)
+                self?.syncBookmarkState()
+            }
         }
         
         viewModel?.didUpdateReviews = { [weak self] in
@@ -128,7 +148,25 @@ extension DetailsViewController {
         }
     
         UserDefaults.standard.set(watchList, forKey: "WatchList")
+        
+        notifyWatchListController()
+
     }
+    
+    
+    
+    private func syncBookmarkState() {
+        guard let movieId = viewModel?.movieDetail?.id else { return }
+
+        let watchList = UserDefaults.standard.array(forKey: "WatchList") as? [Int] ?? []
+
+        if watchList.contains(movieId) {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "bookmark.fill")
+        } else {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "bookmark")
+        }
+    }
+
 }
 
 extension DetailsViewController: UITableViewDataSource, UITableViewDelegate {

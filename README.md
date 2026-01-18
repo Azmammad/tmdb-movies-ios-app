@@ -52,8 +52,5 @@ This project is a movie browsing app powered by the **TMDB API**, allowing users
 - Development was done primarily on the `develop` branch.
 - This repository represents the finalized state of the project for portfolio and demonstration purposes.
 
----
 
-## Screenshots
-_Add screenshots or screen recordings here if needed._
 

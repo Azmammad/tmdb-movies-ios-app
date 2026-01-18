@@ -5,7 +5,7 @@ A **group iOS application** developed during **ABB Tech Academy iOS Bootcamp**.
 This project is a movie browsing app powered by the **TMDB API**, allowing users to explore trending movies, browse by categories, search movies, view detailed information, read reviews, and manage a personal watch list.
 
 ## Team
-- @LeylaJAFAEOVA ( iOS Developer
+- @LeylaJAFAEOVA ( iOS Developer )
 - @Azmammad ( Backend Developer & Aspiring iOS Developer )
 
 > This project was developed collaboratively using GitHub Flow, feature branches, and pull requests in a course-managed repository.

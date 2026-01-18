@@ -1,98 +1,59 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/B6b_HS3f)
-# 🎬 TMDB Movies App — Group Assignment
+# TMDB Movies iOS App
 
-🚨 Git Rules
+A **group iOS application** developed during **ABB Tech Academy iOS Bootcamp**.
 
-- Direct commits to `main` are not allowed
-- Every feature must be implemented in a separate branch
-- Every Pull Request must be reviewed by the teammate
-- PRs without approval cannot be merged
+This project is a movie browsing app powered by the **TMDB API**, allowing users to explore trending movies, browse by categories, search movies, view detailed information, read reviews, and manage a personal watch list.
 
-## 🎨 Design
-👉 https://www.figma.com/design/wNmnhNvAGFY75ZAZqMb3Iq/Movies-app--Community-
+## Team
+- @LeylaJAFAEOVA ( iOS Developer
+- @Azmammad ( Backend Developer & Aspiring iOS Developer )
 
-- Follow layout, screens, and navigation  
-- Pixel-perfect accuracy is not required, but **structure and screens must match**
+> This project was developed collaboratively using GitHub Flow, feature branches, and pull requests in a course-managed repository.
 
 ---
 
-## 📡 API (TMDB)
-
-You must use the following TMDB endpoints according to the design.
-
-### Movie Lists
-- **Trending**  
-  https://developer.themoviedb.org/reference/trending-movies
-
-- **Now Playing**  
-  https://developer.themoviedb.org/reference/movie-now-playing-list
-
-- **Popular**  
-  https://developer.themoviedb.org/reference/movie-popular-list
-
-- **Upcoming**  
-  https://developer.themoviedb.org/reference/movie-upcoming-list
-
-- **Top Rated**  
-  https://developer.themoviedb.org/reference/movie-top-rated-list
-
-### Search
-- **Search Movie**  
-  https://developer.themoviedb.org/reference/search-movie
-
-### Movie Details
-- **Movie Details**  
-  https://developer.themoviedb.org/reference/movie-details
-
-- **Reviews**  
-  https://developer.themoviedb.org/reference/movie-reviews
-
-### Watchlist
-- **Add to Watchlist**  
-  https://developer.themoviedb.org/reference/account-add-to-watchlist
-
-- **Get Watchlist**  
-  https://developer.themoviedb.org/reference/account-watchlist-movies
-
-> Sign in to TMDB, obtain the account ID, and use it for Watchlist-related requests.
+## Features
+- Trending, popular, top-rated, upcoming, and now-playing movies
+- Category-based movie filtering
+- Movie search with empty state handling
+- Detailed movie screen (overview, rating, genre, year, duration)
+- Reviews tab with dynamic loading
+- Watch List (add / remove movies, persistent via UserDefaults)
+- Custom UI components and animations
+- Splash screen with transition
+- Tab-based navigation (Home, Search, Watch List)
 
 ---
 
-## 👥 Team Rules
-
-### Task distribution
-- Tasks must be divided between team members  
-- Both team members must contribute meaningful code  
+## Architecture
+- **UIKit (Programmatic UI)**
+- **MVVM**
+- Builder pattern for screen creation
+- Protocol-oriented networking layer
+- Async/Await for network calls
 
 ---
 
-## 🌿 Git & Branching Rules
+## Technologies & Tools
+- Swift
+- UIKit
+- SnapKit
+- MVVM
+- URLSession
+- TMDB API
+- Git & GitHub
+- UserDefaults
+- Kingfisher (image loading)
 
-- ❌ No direct commits to `main`  
-- ✅ Each feature must be implemented in a separate branch  
-- ✅ Commits must be small, logical, and descriptive  
+---
 
-**Example branches:**
-```text
-feature/network-layer
-feature/movie-lists
-feature/movie-detail
-feature/search
-feature/watchlist
-```
+## Project Notes
+- The original repository used a protected `main` branch with instructor-controlled merges.
+- Development was done primarily on the `develop` branch.
+- This repository represents the finalized state of the project for portfolio and demonstration purposes.
 
-## 🔀 Pull Request & Review Flow
+---
 
-For every feature:
+## Screenshots
+_Add screenshots or screen recordings here if needed._
 
-1. Implement the feature in your own branch  
-2. Open a Pull Request to `main`  
-3. The other team member must:
-   - Review the code
-   - Leave comments  
-4. The author must:
-   - Fix all comments
-   - Push updates  
-5. After comments are resolved → **merge the PR**
-
-🚫 PRs without review must not be merged.
